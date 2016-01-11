@@ -1,0 +1,15 @@
+{
+    "name": "wanderlp/php-test",
+    "description": "My first test with Zend Framework",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "zf2",
+        "test"
+    ],
+    "homepage": "http://wanderlp.com/",
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zendframework": "~2.5"
+    }
+}

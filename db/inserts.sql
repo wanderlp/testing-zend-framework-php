@@ -1,0 +1,1 @@
+INSERT INTO `phpTest`.`customer` (`firstname`, `lastname`, `phone`, `address`, `city`, `state`, `zipcode`) VALUES ('Wanderson', 'López', '(+502) 4978-3416', 'Zona 21', 'Guatemala', 'Guatemala', '01021');

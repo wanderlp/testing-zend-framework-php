@@ -1,0 +1,95 @@
+<?php
+
+$title = "Edit customer";
+$this -> headTitle($title);
+
+?>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h1><?php echo sprintf($this -> translate('Edit customer'), '<h1>', '</h1>') ?></h1>
+        <p>Complete the next form, please.</p>
+        <hr>
+        <?php
+            $form -> setAttribute('action', $this -> url('customer', array(
+                'action' => 'edit',
+                'id'     => $id
+            )));
+            $form -> setAttribute('class', 'form-horizontal');
+            $form -> prepare();
+            
+            echo $this -> form() -> openTag($form);
+        ?>
+        <!-- idcustomer -->
+        <div class="form-group">
+            <label for="idcustomer" class="control-label col-sm-2">Id</label>
+            <div class="col-sm-5">
+                <input type="text" name="idcustomer" class="form-control" value="<?php echo $id ?>" disabled />
+            </div>
+        </div>
+        
+        <!-- firstname -->
+        <div class="form-group">
+            <label for="firstname" class="control-label col-sm-2">First Name</label>
+            <div class="col-sm-5">
+                <input type="text" name="firstname" class="form-control" autofocus required value="<?php echo $customer -> firstname ?>" />
+            </div>
+        </div>
+        
+        <!-- lastname -->
+        <div class="form-group">
+            <label for="lastname" class="control-label col-sm-2">Last Name</label>
+            <div class="col-sm-5">
+                <input type="text" name="lastname" class="form-control" required value="<?php echo $customer -> lastname ?>" />
+            </div>
+        </div>
+        
+        <!-- phone -->
+        <div class="form-group">
+            <label for="phone" class="control-label col-sm-2">Phone</label>
+            <div class="col-sm-3">
+                <input type="text" name="phone" class="form-control col-sm-2" required value="<?php echo $customer -> phone ?>" />
+            </div>
+        </div>
+        
+        <!-- address -->
+        <div class="form-group">
+            <label for="address" class="control-label col-sm-2">Address</label>
+            <div class="col-sm-5">
+                <input type="text" name="address" class="form-control" value="<?php echo $customer -> address ?>" />
+            </div>
+        </div>
+        
+        <!-- city -->
+        <div class="form-group">
+            <label for="city" class="control-label col-sm-2">City</label>
+            <div class="col-sm-5">
+                <input type="text" name="city" class="form-control" value="<?php echo $customer -> city ?>" />
+            </div>
+        </div>
+        
+        <!-- state -->
+        <div class="form-group">
+            <label for="state" class="control-label col-sm-2">State</label>
+            <div class="col-sm-5">
+                <input type="text" name="state" class="form-control" value="<?php echo $customer -> state ?>" />
+            </div>
+        </div>
+        
+        <!-- zipcode -->
+        <div class="form-group">
+            <label for="zipcode" class="control-label col-sm-2">Zip Code</label>
+            <div class="col-sm-5">
+                <input type="text" name="zipcode" class="form-control" value="<?php echo $customer -> zipcode ?>" />
+            </div>
+        </div>
+        
+        <!-- submit -->
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Edit Customer</button>
+                <a href="<?php echo $this -> url('customer', array('action', 'index')) ?>" class="btn btn-danger">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>

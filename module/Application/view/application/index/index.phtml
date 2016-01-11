@@ -1,0 +1,36 @@
+<?php
+
+$title = "Home Page";
+$this -> headTitle($title);
+
+?>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h1><?php echo sprintf($this->translate('Welcome to home page'), '<span>', '</span>') ?></h1>
+        <hr>
+        <p><?php echo sprintf($this->translate('What can I do for you?'), '<span>', '</span>') ?></p>
+        <ul>
+            <li>
+                <a href="<?php echo $this -> url('customer', array('action' => 'index')) ?>">
+                    <?php echo sprintf($this->translate('Show the list of all registered customers.'), '<a>', '</a>') ?>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo $this -> url('customer', array('action' => 'add')) ?>">
+                    <?php echo sprintf($this->translate('Add a new customer.'), '<a>', '</a>') ?>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <?php echo sprintf($this->translate('Search/filter a customer.'), '<a>', '</a>') ?>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <?php echo sprintf($this->translate('See README file.'), '<a>', '</a>') ?>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
