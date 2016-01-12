@@ -1,13 +1,13 @@
 <?php
 
-$title = "Delete customer";
+$title = $this -> translate("Delete customer");
 $this -> headTitle($title);
 
 ?>
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <h1>Detele customer</h1>
+        <h1><?php echo $title ?></h1>
         <?php
             $url =  $this->url('customer', array(
                 'action' => 'delete',
@@ -15,15 +15,15 @@ $this -> headTitle($title);
             ));
         ?>
         <form action="<?php echo $url ?>" method="post" class="form-horizontal">
-            <p>Are you sure?</p>
+            <p><?php echo $this -> translate('Are you sure?') ?></p>
             <div class="btn-group">
-                <button class="btn btn-success" name="del" value="Yes">Yes</button>
-                <button class="btn btn-danger" name="del" value="No">No</button>
+                <button class="btn btn-success" name="del" value="Yes"><?php echo $this -> translate('Yes') ?></button>
+                <button class="btn btn-danger" name="del" value="No"><?php echo $this -> translate('No') ?></button>
             </div>
             <hr>
             <!-- idcustomer -->
             <div class="form-group">
-                <label for="idcustomer" class="control-label col-sm-2">Id</label>
+                <label for="idcustomer" class="control-label col-sm-2"><?php echo $this -> translate('Id') ?></label>
                 <div class="col-sm-5">
                     <input type="text" name="idcustomer" class="form-control" value="<?php echo $id ?>" disabled />
                 </div>
@@ -31,7 +31,7 @@ $this -> headTitle($title);
             
             <!-- firstname -->
             <div class="form-group">
-                <label for="firstname" class="control-label col-sm-2">First Name</label>
+                <label for="firstname" class="control-label col-sm-2"><?php echo $this -> translate('First Name') ?></label>
                 <div class="col-sm-5">
                     <input type="text" name="firstname" class="form-control" autofocus required value="<?php echo $customer -> firstname ?>" disabled />
                 </div>
@@ -39,7 +39,7 @@ $this -> headTitle($title);
             
             <!-- lastname -->
             <div class="form-group">
-                <label for="lastname" class="control-label col-sm-2">Last Name</label>
+                <label for="lastname" class="control-label col-sm-2"><?php echo $this -> translate('Last Name') ?></label>
                 <div class="col-sm-5">
                     <input type="text" name="lastname" class="form-control" required value="<?php echo $customer -> lastname ?>" disabled />
                 </div>
@@ -47,7 +47,7 @@ $this -> headTitle($title);
             
             <!-- phone -->
             <div class="form-group">
-                <label for="phone" class="control-label col-sm-2">Phone</label>
+                <label for="phone" class="control-label col-sm-2"><?php echo $this -> translate('Phone') ?></label>
                 <div class="col-sm-3">
                     <input type="text" name="phone" class="form-control col-sm-2" required value="<?php echo $customer -> phone ?>" disabled />
                 </div>
@@ -55,7 +55,7 @@ $this -> headTitle($title);
             
             <!-- address -->
             <div class="form-group">
-                <label for="address" class="control-label col-sm-2">Address</label>
+                <label for="address" class="control-label col-sm-2"><?php echo $this -> translate('Address') ?></label>
                 <div class="col-sm-5">
                     <input type="text" name="address" class="form-control" value="<?php echo $customer -> address ?>" disabled />
                 </div>
@@ -63,7 +63,7 @@ $this -> headTitle($title);
             
             <!-- city -->
             <div class="form-group">
-                <label for="city" class="control-label col-sm-2">City</label>
+                <label for="city" class="control-label col-sm-2"><?php echo $this -> translate('City') ?></label>
                 <div class="col-sm-5">
                     <input type="text" name="city" class="form-control" value="<?php echo $customer -> city ?>" disabled />
                 </div>
@@ -71,7 +71,7 @@ $this -> headTitle($title);
             
             <!-- state -->
             <div class="form-group">
-                <label for="state" class="control-label col-sm-2">State</label>
+                <label for="state" class="control-label col-sm-2"><?php echo $this -> translate('State') ?></label>
                 <div class="col-sm-5">
                     <input type="text" name="state" class="form-control" value="<?php echo $customer -> state ?>" disabled />
                 </div>
@@ -79,7 +79,7 @@ $this -> headTitle($title);
             
             <!-- zipcode -->
             <div class="form-group">
-                <label for="zipcode" class="control-label col-sm-2">Zip Code</label>
+                <label for="zipcode" class="control-label col-sm-2"><?php echo $this -> translate('Zip Code') ?></label>
                 <div class="col-sm-5">
                     <input type="text" name="zipcode" class="form-control" value="<?php echo $customer -> zipcode ?>" disabled />
                 </div>

@@ -1,34 +1,34 @@
 <?php
 
-$title = "Home Page";
+$title = $this -> translate('Home Page');
 $this -> headTitle($title);
 
 ?>
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <h1><?php echo sprintf($this->translate('Welcome to home page'), '<span>', '</span>') ?></h1>
+        <h1><?php echo $this -> translate('Welcome to home page') ?></h1>
         <hr>
-        <p><?php echo sprintf($this->translate('What can I do for you?'), '<span>', '</span>') ?></p>
+        <p><?php echo $this -> translate('What can I do for you?') ?></p>
         <ul>
             <li>
                 <a href="<?php echo $this -> url('customer', array('action' => 'index')) ?>">
-                    <?php echo sprintf($this->translate('Show the list of all registered customers.'), '<a>', '</a>') ?>
+                    <?php echo $this -> translate('Show the list of all registered customers.') ?>
                 </a>
             </li>
             <li>
                 <a href="<?php echo $this -> url('customer', array('action' => 'add')) ?>">
-                    <?php echo sprintf($this->translate('Add a new customer.'), '<a>', '</a>') ?>
+                    <?php echo $this -> translate('Add a new customer.') ?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?php echo sprintf($this->translate('Search/filter a customer.'), '<a>', '</a>') ?>
+                    <?php echo $this -> translate('Search/filter a customer.') ?>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <?php echo sprintf($this->translate('See README file.'), '<a>', '</a>') ?>
+                    <?php echo $this -> translate('See README file.') ?>
                 </a>
             </li>
         </ul>

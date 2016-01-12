@@ -1,26 +1,26 @@
 <?php
 
-$title = "Customers";
+$title = $this -> translate("Customers");
 $this -> headTitle($title);
 
 ?>
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <h1><?php echo sprintf($this->translate('Customers'), '<h1>', '</h1>') ?></h1>
-        <p><?php echo sprintf($this->translate('Manage the list of all client registered.'), '<p>', '</p>') ?></p>
+        <h1><?php echo $title ?></h1>
+        <p><?php echo $this -> translate('Manage the list of all client registered.') ?></p>
         <hr>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Zip Code</th>
+                    <th><?php echo $this -> translate('Id') ?></th>
+                    <th><?php echo $this -> translate('First Name') ?></th>
+                    <th><?php echo $this -> translate('Last Name') ?></th>
+                    <th><?php echo $this -> translate('Phone') ?></th>
+                    <th><?php echo $this -> translate('Address') ?></th>
+                    <th><?php echo $this -> translate('City') ?></th>
+                    <th><?php echo $this -> translate('State') ?></th>
+                    <th><?php echo $this -> translate('Zip Code') ?></th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -52,10 +52,10 @@ $this -> headTitle($title);
         </table>
         <div class="btn-group">
             <a class="btn btn-default" href="<?php echo $this -> url('customer', array('action' => 'add')) ?>">
-                <span class="glyphicon glyphicon-plus"></span> Add new customer
+                <span class="glyphicon glyphicon-plus"></span> <?php echo $this -> translate('Add new customer') ?>
             </a>
             <a class="btn btn-default" href="<?php echo $this -> url('home') ?>">
-                <span class="glyphicon glyphicon-arrow-left"></span> Back to home page
+                <span class="glyphicon glyphicon-arrow-left"></span> <?php echo $this -> translate('Back to home page') ?>
             </a>
         </div>
     </div>

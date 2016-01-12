@@ -1,14 +1,14 @@
 <?php
 
-$title = "Add new customers";
+$title = $this -> translate('Add new customer');
 $this -> headTitle($title);
 
 ?>
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <h1><?php echo sprintf($this -> translate('Add new customer'), '<h1>', '</h1>') ?></h1>
-        <p>Complete the next form, please.</p>
+        <h1><?php echo $title ?></h1>
+        <p><?php echo $this -> translate('Please, fill the next form.') ?></p>
         <hr>
         <?php
             $form -> setAttribute('action', $this -> url('customer', array('action' => 'add')));
@@ -19,7 +19,7 @@ $this -> headTitle($title);
         ?>
         <!-- firstname -->
         <div class="form-group">
-            <label for="firstname" class="control-label col-sm-2">First Name</label>
+            <label for="firstname" class="control-label col-sm-2"><?php echo $this -> translate('First Name') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="firstname" class="form-control" value autofocus required />
             </div>
@@ -27,7 +27,7 @@ $this -> headTitle($title);
         
         <!-- lastname -->
         <div class="form-group">
-            <label for="lastname" class="control-label col-sm-2">Last Name</label>
+            <label for="lastname" class="control-label col-sm-2"><?php echo $this -> translate('Last Name') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="lastname" class="form-control" value required />
             </div>
@@ -35,7 +35,7 @@ $this -> headTitle($title);
         
         <!-- phone -->
         <div class="form-group">
-            <label for="phone" class="control-label col-sm-2">Phone</label>
+            <label for="phone" class="control-label col-sm-2"><?php echo $this -> translate('Phone') ?></label>
             <div class="col-sm-3">
                 <input type="text" name="phone" class="form-control col-sm-2" value required />
             </div>
@@ -43,7 +43,7 @@ $this -> headTitle($title);
         
         <!-- address -->
         <div class="form-group">
-            <label for="address" class="control-label col-sm-2">Address</label>
+            <label for="address" class="control-label col-sm-2"><?php echo $this -> translate('Address') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="address" class="form-control" value />
             </div>
@@ -51,7 +51,7 @@ $this -> headTitle($title);
         
         <!-- city -->
         <div class="form-group">
-            <label for="city" class="control-label col-sm-2">City</label>
+            <label for="city" class="control-label col-sm-2"><?php echo $this -> translate('City') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="city" class="form-control" value />
             </div>
@@ -59,7 +59,7 @@ $this -> headTitle($title);
         
         <!-- state -->
         <div class="form-group">
-            <label for="state" class="control-label col-sm-2">State</label>
+            <label for="state" class="control-label col-sm-2"><?php echo $this -> translate ('State') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="state" class="form-control" value />
             </div>
@@ -67,7 +67,7 @@ $this -> headTitle($title);
         
         <!-- zipcode -->
         <div class="form-group">
-            <label for="zipcode" class="control-label col-sm-2">Zip Code</label>
+            <label for="zipcode" class="control-label col-sm-2"><?php echo $this -> translate('Zip Code') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="zipcode" class="form-control" value />
             </div>
@@ -76,8 +76,8 @@ $this -> headTitle($title);
         <!-- submit -->
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Add Customer</button>
-                <a href="<?php echo $this -> url('customer', array('action', 'index')) ?>" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary"><?php echo $this -> translate('Add Customer') ?></button>
+                <a href="<?php echo $this -> url('customer', array('action', 'index')) ?>" class="btn btn-danger"><?php echo $this -> translate('Cancel') ?></a>
             </div>
         </div>
         <?php
