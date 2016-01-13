@@ -129,4 +129,11 @@
              'customer' => $this -> getCustomerTable() -> getCustomer($id)
          );
      }
+     
+     public function searchAction()
+     {
+         $form = new CustomerForm();
+         echo "entro aqui";
+         return array('form' => $form);
+     }
  }

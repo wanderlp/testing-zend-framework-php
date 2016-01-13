@@ -65,4 +65,9 @@ class CustomerTable
     {
         $this -> tableGateway -> delete(array('idcustomer' => (int) $id));
     }
+    
+    public function searchCustomer()
+    {
+        
+    }
 }

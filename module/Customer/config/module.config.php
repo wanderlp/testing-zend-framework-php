@@ -31,7 +31,7 @@ return array(
     // Views
     'view_manager' => array(
         'template_path_stack' => array(
-            'album' => __DIR__ . '/../view'
+            'customer' => __DIR__ . '/../view'
         )
     )
 );

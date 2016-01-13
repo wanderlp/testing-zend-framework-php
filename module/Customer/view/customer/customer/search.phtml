@@ -1,0 +1,82 @@
+<?php
+
+$title = $this -> translate('Search/filter a customer');
+$this -> headTitle($title);
+
+?>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h1><?php echo $title ?></h1>
+        <p><?php echo $this -> translate('You can indicate one or more search filter conditions.') ?></p>
+        <?php
+            $form -> setAttribute('action', $this -> url('customer', array('action' => 'search')));
+            $form -> setAttribute('class', 'form-inline');
+            $form -> prepare();
+            
+            echo $this -> form() -> openTag($form);
+        ?>
+        <!-- idcustomer -->
+        <div class="form-group">
+            <label for="idcustomer"><?php echo $this -> translate('Id') ?></label>
+            <input type="text" name="idcustomer" class="form-control" autofocus />
+        </div>
+        
+        <!-- firstname -->
+        <div class="form-group">
+            <label for="firstname"><?php echo $this -> translate('First Name') ?></label>
+            <input type="text" name="firstname" class="form-control" />
+        </div>
+        
+        <!-- lastname -->
+        <div class="form-group">
+            <label for="lastname"><?php echo $this -> translate('Last Name') ?></label>
+            <input type="text" name="lastname" class="form-control" />
+        </div>
+        
+        <!-- phone -->
+        <div class="form-group">
+            <label for="phone"><?php echo $this -> translate('Phone') ?></label>
+            <input type="text" name="phone" class="form-control" />
+        </div>
+        
+        <!-- address -->
+        <div class="form-group">
+            <label for="address"><?php echo $this -> translate('Address') ?></label>
+            <input type="text" name="address" class="form-control" />
+        </div>
+        
+        <!-- city -->
+        <div class="form-group">
+            <label for="city"><?php echo $this -> translate('City') ?></label>
+            <input type="text" name="city" class="form-control" />
+        </div>
+        
+        <!-- state -->
+        <div class="form-group">
+            <label for="state"><?php echo $this -> translate('State') ?></label>
+            <input type="text" name="state" class="form-control" />
+        </div>
+        
+        <!-- zipcode -->
+        <div class="form-group">
+            <label for="zipcode"><?php echo $this -> translate('Zip Code') ?></label>
+            <input type="text" name="zipcode" class="form-control" />
+        </div>
+        
+        <!-- submit -->
+        <br><br>
+        <div class="form-group">
+        <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search"></span> <?php echo $this -> translate('Search') ?>
+        </button>
+        <a class="btn btn-default" href="<?php echo $this -> url('home') ?>">
+            <span class="glyphicon glyphicon-home"></span> <?php echo $this -> translate('Back to home page') ?>
+        </a>
+        </div>
+        <?php
+            echo $this -> form() -> closeTag();
+        ?>
+        <hr>
+    </div>
+</div>

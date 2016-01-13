@@ -50,13 +50,11 @@ $this -> headTitle($title);
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <div class="btn-group">
-            <a class="btn btn-default" href="<?php echo $this -> url('customer', array('action' => 'add')) ?>">
-                <span class="glyphicon glyphicon-plus"></span> <?php echo $this -> translate('Add new customer') ?>
-            </a>
-            <a class="btn btn-default" href="<?php echo $this -> url('home') ?>">
-                <span class="glyphicon glyphicon-arrow-left"></span> <?php echo $this -> translate('Back to home page') ?>
-            </a>
-        </div>
+        <a class="btn btn-default" href="<?php echo $this -> url('customer', array('action' => 'add')) ?>">
+            <span class="glyphicon glyphicon-plus"></span> <?php echo $this -> translate('Add new customer') ?>
+        </a>
+        <a class="btn btn-default" href="<?php echo $this -> url('home') ?>">
+            <span class="glyphicon glyphicon-home"></span> <?php echo $this -> translate('Back to home page') ?>
+        </a>
     </div>
 </div>
