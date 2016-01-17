@@ -12,37 +12,43 @@ $this -> headTitle($title);
         <hr>
         <?php
             $form -> setAttribute('action', $this -> url('customer', array('action' => 'add')));
+            $form -> setAttribute('onsubmit', 'return customer_onsubmit();');
+            $form -> setAttribute('novalidate', '');
             $form -> setAttribute('class', 'form-horizontal');
             $form -> prepare();
             
             echo $this -> form() -> openTag($form);
         ?>
         <!-- firstname -->
-        <div class="form-group">
+        <div id="firstname-group" class="form-group">
             <label for="firstname" class="control-label col-sm-2"><?php echo $this -> translate('First Name') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="firstname" class="form-control" value autofocus required />
             </div>
+            <span id="firstname-required" class="help-block"><?php echo $this -> translate('Field is required!') ?></span>
         </div>
         
         <!-- lastname -->
-        <div class="form-group">
+        <div id="lastname-group" class="form-group">
             <label for="lastname" class="control-label col-sm-2"><?php echo $this -> translate('Last Name') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="lastname" class="form-control" value required />
             </div>
+            <span id="lastname-required" class="help-block"><?php echo $this -> translate('Field is required!') ?></span>
         </div>
         
         <!-- phone -->
-        <div class="form-group">
+        <div id="phone-group" class="form-group">
             <label for="phone" class="control-label col-sm-2"><?php echo $this -> translate('Phone') ?></label>
             <div class="col-sm-3">
-                <input type="text" name="phone" class="form-control col-sm-2" value required />
+                <input type="text" name="phone" class="form-control col-sm-2" value required placeholder="(123) 456 7899" maxlength="14" />
             </div>
+            <span id="phone-required" class="help-block"><?php echo $this -> translate('Field is required!') ?></span>
+            <span id="phone-invalid" class="help-block"><?php echo $this -> translate('Field is invalid!') ?></span>
         </div>
         
         <!-- address -->
-        <div class="form-group">
+        <div id="address-group" class="form-group">
             <label for="address" class="control-label col-sm-2"><?php echo $this -> translate('Address') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="address" class="form-control" value />
@@ -50,7 +56,7 @@ $this -> headTitle($title);
         </div>
         
         <!-- city -->
-        <div class="form-group">
+        <div id="city-group" class="form-group">
             <label for="city" class="control-label col-sm-2"><?php echo $this -> translate('City') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="city" class="form-control" value />
@@ -58,7 +64,7 @@ $this -> headTitle($title);
         </div>
         
         <!-- state -->
-        <div class="form-group">
+        <div id="state-group" class="form-group">
             <label for="state" class="control-label col-sm-2"><?php echo $this -> translate ('State') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="state" class="form-control" value />
@@ -66,7 +72,7 @@ $this -> headTitle($title);
         </div>
         
         <!-- zipcode -->
-        <div class="form-group">
+        <div id="zipcode-group" class="form-group">
             <label for="zipcode" class="control-label col-sm-2"><?php echo $this -> translate('Zip Code') ?></label>
             <div class="col-sm-5">
                 <input type="text" name="zipcode" class="form-control" value />
@@ -85,3 +91,5 @@ $this -> headTitle($title);
         ?>
     </div>
 </div>
+
+<script src="<?php echo $this -> basePath('app/customer-validations.js') ?>"></script>
