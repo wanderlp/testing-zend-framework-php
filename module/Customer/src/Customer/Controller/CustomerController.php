@@ -47,10 +47,13 @@
 
              if ($form -> isValid()) {
                  $customer -> exchangeArray($form -> getData());
-                 $this -> getCustomerTable() -> saveCustomer($customer);
+                 $this -> getCustomerTable() -> saveCustomer(0, $customer);
 
                  // Redirecciona a la lista completa de clientes
                  return $this -> redirect() -> toRoute('customer');
+             }
+             else {
+                 $messages = $form -> getMessages();
              }
          }
          return array('form' => $form);
@@ -87,6 +90,9 @@
 
                  // Redirecciona a la lista completa de clientes luego de guardar los cambios
                  return $this -> redirect() -> toRoute('customer');
+             }
+             else {
+                 $messages = $form -> getMessages();
              }
          }
 
