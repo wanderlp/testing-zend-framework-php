@@ -1,9 +1,16 @@
 $(document).ready(function() {
+    clearErrors();
+    $("input[name=zipcode]").ForceNumericOnly();
+});
+
+function clearErrors() {
     removeError("firstname", "required");
     removeError("lastname", "required");
     removeError("phone", "required");
     removeError("phone", "invalid");
-});
+    removeError("state", "required");
+    removeError("zipcode", "required");
+};
 
 function removeError(field, type) {
     var formgroup = "#" + field + "-group";
@@ -25,6 +32,7 @@ function setFocus(fieldname) {
 };
 
 function customer_onsubmit() {
+    clearErrors();
     var formIsValid = true;
     var focused = false;
     var tofocus = "";
@@ -36,7 +44,6 @@ function customer_onsubmit() {
         if (!focused) { tofocus = "firstname"; focused = true; }
         formIsValid = false;
     }
-    else removeError("firstname", "required");
     
     // Lastname is required
     var lastname = $("input[name=lastname]").val();
@@ -45,7 +52,6 @@ function customer_onsubmit() {
         if (!focused) { tofocus = "lastname"; focused = true; }
         formIsValid = false;
     }
-    else removeError("lastname", "required");
     
     // Phone is required
     var phone = $("input[name=phone]").val();
@@ -55,23 +61,66 @@ function customer_onsubmit() {
         formIsValid = false;
     }
     else {
-        removeError("phone", "required");
         // Phone is valid
         if (!validatePhone(phone)) {
             addError("phone", "invalid");
             if (!focused) { tofocus = "phone"; focused = true; }
             formIsValid = false;
         }
-        else removeError("phone", "invalid");
     }
     
     // State and zip code are required when address is not empty
+    var address = $("input[name=address]").val();
+    var state = $("input[name=state]").val();
+    var zipcode = $("input[name=zipcode]").val();
+    if (address && address.trim() != "") {
+        if (!state || state.trim() == "") {
+            console.log("entro");
+            addError("state", "required");
+            if (!focused) { tofocus = "state"; focused = true; }
+            formIsValid = false;
+        }
+        
+        if (!zipcode || zipcode.trim() == "") {
+            addError("zipcode", "required");
+            if (!focused) { tofocus = "zipcode"; focused = true; }
+            formIsValid = false;
+        }
+    }
     
     // Zip code is required when state is not empty
+    if (state && state.trim() != "") {
+        if (!zipcode || zipcode.trim() == "") {
+            addError("zipcode", "required");
+            if (!focused) { tofocus = "zipcode"; focused = true; }
+            formIsValid = false;
+        }
+    }
     
     // State is required when zip code is not empty
+    if (zipcode && zipcode.trim() != "") {
+        if (!state || state.trim() == "") {
+            addError("state", "required");
+            if (!focused) { tofocus = "state"; focused = true; }
+            formIsValid = false;
+        }
+    }
     
     // State and zip code is required when when city is not empty
+    var city = $("input[name=city]").val();
+    if (city && city.trim() != "") {
+        if (!state || state.trim() == "") {
+            addError("state", "required");
+            if (!focused) { tofocus = "state"; focused = true; }
+            formIsValid = false;
+        }
+        
+        if (!zipcode || zipcode.trim() == "") {
+            addError("zipcode", "required");
+            if (!focused) { tofocus = "zipcode"; focused = true; }
+            formIsValid = false;
+        }
+    }
     
     // Set focus to the first field with error and return the error (if exists);
     setFocus(tofocus);

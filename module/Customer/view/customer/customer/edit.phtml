@@ -34,7 +34,7 @@ $this -> headTitle($title);
         <div id="firstname-group" class="form-group">
             <label for="firstname" class="control-label col-sm-2"><?php echo $this -> translate('First Name') ?></label>
             <div class="col-sm-5">
-                <input type="text" name="firstname" class="form-control" autofocus required value="<?php echo $customer -> firstname ?>" />
+                <input type="text" name="firstname" class="form-control" autofocus value="<?php echo $customer -> firstname ?>" />
             </div>
             <span id="firstname-required" class="help-block"><?php echo $this -> translate('Field is required!') ?></span>
         </div>
@@ -43,7 +43,7 @@ $this -> headTitle($title);
         <div id="lastname-group" class="form-group">
             <label for="lastname" class="control-label col-sm-2"><?php echo $this -> translate('Last Name') ?></label>
             <div class="col-sm-5">
-                <input type="text" name="lastname" class="form-control" required value="<?php echo $customer -> lastname ?>" />
+                <input type="text" name="lastname" class="form-control" value="<?php echo $customer -> lastname ?>" />
             </div>
             <span id="lastname-required" class="help-block"><?php echo $this -> translate('Field is required!') ?></span>
         </div>
@@ -52,7 +52,7 @@ $this -> headTitle($title);
         <div id="phone-group" class="form-group">
             <label for="phone" class="control-label col-sm-2"><?php echo $this -> translate('Phone') ?></label>
             <div class="col-sm-3">
-                <input type="text" name="phone" class="form-control col-sm-2" required value="<?php echo $customer -> phone ?>" placeholder="(123) 456 7899" maxlength="14" />
+                <input type="text" name="phone" class="form-control col-sm-2" value="<?php echo $customer -> phone ?>" placeholder="(123) 456 7899" maxlength="14" />
             </div>
             <span id="phone-required" class="help-block"><?php echo $this -> translate('Field is required!') ?></span>
             <span id="phone-invalid" class="help-block"><?php echo $this -> translate('Field is invalid!') ?></span>
@@ -76,18 +76,20 @@ $this -> headTitle($title);
         
         <!-- state -->
         <div id="state-group" class="form-group">
-            <label for="state" class="control-label col-sm-2"><?php echo $this -> translate('State') ?></label>
+            <label for="state" class="control-label col-sm-2"><?php echo $this -> translate ('State') ?></label>
             <div class="col-sm-5">
-                <input type="text" name="state" class="form-control" value="<?php echo $customer -> state ?>" />
+                <input type="text" name="state" class="form-control" value />
             </div>
+            <span id="state-required" class="help-block"><?php echo $this -> translate('Field is required!') ?></span>
         </div>
         
         <!-- zipcode -->
         <div id="zipcode-group" class="form-group">
             <label for="zipcode" class="control-label col-sm-2"><?php echo $this -> translate('Zip Code') ?></label>
-            <div class="col-sm-5">
-                <input type="text" name="zipcode" class="form-control" value="<?php echo $customer -> zipcode ?>" />
+            <div class="col-sm-3">
+                <input type="text" name="zipcode" class="form-control" value maxlength="5" />
             </div>
+            <span id="zipcode-required" class="help-block"><?php echo $this -> translate('Field is required!') ?></span>
         </div>
         
         <!-- submit -->
