@@ -65,8 +65,34 @@ class CustomerTable
         $this -> tableGateway -> delete(array('idcustomer' => (int) $id));
     }
     
-    public function searchCustomer()
+    public function searchCustomer($customer)
     {
-        
+        $id = (int) $customer -> idcustomer;
+        $firstname = str_replace(' ', '%', $customer -> firstname);
+        $lastname = str_replace(' ', '%', $customer -> lastname);
+        $phone = $customer -> phone;
+        $address = str_replace(' ', '%', $customer -> address);
+        $city = str_replace(' ', '%', $customer -> city);
+        $state = str_replace(' ', '%', $customer -> state);
+        $zipcode = str_replace(' ', '%', $customer -> zipcode);
+        $where = "1 = 1";
+        if ($customer -> idcustomer != 0)
+            $where = $where." and idcustomer = $id";
+        if ($customer -> firstname != "")
+            $where = $where." and firstname like '%$firstname%'";
+        if ($customer -> lastname != "")
+            $where = $where." and lastname like '%$lastname%'";
+        if ($customer -> phone != "")
+            $where = $where." and phone = '$phone'";
+        if ($customer -> address != "")
+            $where = $where." and address like '%$address%'";
+        if ($customer -> city != "")
+            $where = $where." and city like '%$city%'";
+        if ($customer -> state != "")
+            $where = $where." and state like '%$state%'";
+        if ($customer -> zipcode != "")
+            $where = $where." and zipcode like '%$zipcode%'";
+        $resultSet = $this -> tableGateway -> select($where);
+        return $resultSet;
     }
 }

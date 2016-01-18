@@ -139,7 +139,28 @@
      public function searchAction()
      {
          $form = new CustomerForm();
-         echo "entro aqui";
-         return array('form' => $form);
+         $form -> get('submit') -> setValue('Search');
+         $customer = new Customer();
+         $customers = null;
+
+         $request = $this -> getRequest();
+         if ($request -> isPost()) {
+             $customer = new Customer();
+             $form -> setInputFilter($customer -> getInputFilter());
+             $form -> setData($request -> getPost());
+
+             if ($form -> isValid()) {
+                 $customer -> exchangeArray($form -> getData());
+                 $customers = $this -> getCustomerTable() -> searchCustomer($customer);
+             }
+             else {
+                 $messages = $form -> getMessages();
+             }
+         }
+         return array(
+             'form' => $form,
+             'customer' => $customer,
+             'customers' => $customers
+         );
      }
  }
