@@ -97,7 +97,7 @@ $this -> headTitle($title);
                     if ($rows > 0) :
                         foreach ($customers as $customer) :
                 ?>
-                <tr>
+                <tr ondblclick="$(location).attr('href', '<?php echo $this -> url('customer', array('action' => 'edit', 'id' => $customer -> idcustomer)) ?>');">
                     <td><?php echo $this -> escapeHtml($customer -> idcustomer) ?></td>
                     <td><div><?php echo $this -> escapeHtml($customer -> firstname) ?></div></td>
                     <td><div><?php echo $this -> escapeHtml($customer -> lastname) ?></div></td>
@@ -110,12 +110,10 @@ $this -> headTitle($title);
                 <?php
                         endforeach;
                     endif;
-                ?>
-                <tr>
-                    <td colspan="8" style="text-align: center;"><small><?php echo $rows ?> custom(s) found.</small></td>
-                </tr> 
+                ?> 
             </tbody>
         </table>
+        <div style="text-align: center;"><small><?php echo $rows ?> custom(s) found.</small></div>
     </div>
 </div>
 

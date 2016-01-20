@@ -31,15 +31,15 @@ $this -> headTitle($title);
                     if ($rows > 0) :
                         foreach ($customers as $customer) :
                 ?>
-                <tr>
+                <tr ondblclick="$(location).attr('href', '<?php echo $this -> url('customer', array('action' => 'edit', 'id' => $customer -> idcustomer)) ?>');">
                     <td><?php echo $this -> escapeHtml($customer -> idcustomer) ?></td>
-                    <td><div contenteditable="true"><?php echo $this -> escapeHtml($customer -> firstname) ?></div></td>
-                    <td><div contenteditable="true"><?php echo $this -> escapeHtml($customer -> lastname) ?></div></td>
-                    <td><div contenteditable="true"><?php echo $this -> escapeHtml($customer -> phone) ?></div></td>
-                    <td><div contenteditable="true"><?php echo $this -> escapeHtml($customer -> address) ?></div></td>
-                    <td><div contenteditable="true"><?php echo $this -> escapeHtml($customer -> city) ?></div></td>
-                    <td><div contenteditable="true"><?php echo $this -> escapeHtml($customer -> state) ?></div></td>
-                    <td><div contenteditable="true"><?php echo $this -> escapeHtml($customer -> zipcode) ?></div></td>
+                    <td><div><?php echo $this -> escapeHtml($customer -> firstname) ?></div></td>
+                    <td><div><?php echo $this -> escapeHtml($customer -> lastname) ?></div></td>
+                    <td><div><?php echo $this -> escapeHtml($customer -> phone) ?></div></td>
+                    <td><div><?php echo $this -> escapeHtml($customer -> address) ?></div></td>
+                    <td><div><?php echo $this -> escapeHtml($customer -> city) ?></div></td>
+                    <td><div><?php echo $this -> escapeHtml($customer -> state) ?></div></td>
+                    <td><div><?php echo $this -> escapeHtml($customer -> zipcode) ?></div></td>
                     <td>
                         <a href="<?php echo $this -> url('customer', array('action' => 'edit', 'id' => $customer -> idcustomer)) ?>">
                             <span class="glyphicon glyphicon-edit"></span>
@@ -55,11 +55,9 @@ $this -> headTitle($title);
                         endforeach;
                     endif;
                 ?>
-                <tr>
-                    <td colspan="10" style="text-align: center;"><small><?php echo $rows ?> registered customer(s).</small></td>
-                </tr> 
             </tbody>
         </table>
+        <div style="text-align: center;"><small><?php echo $rows ?> registered customer(s).</small></div>
         <a class="btn btn-default" href="<?php echo $this -> url('customer', array('action' => 'add')) ?>">
             <span class="glyphicon glyphicon-plus"></span> <?php echo $this -> translate('Add new customer') ?>
         </a>
