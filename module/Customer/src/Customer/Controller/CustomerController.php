@@ -38,14 +38,14 @@
      {
          $form = new CustomerForm();
          $form -> get('submit') -> setValue('Add');
-
+         //$form -> TEST();
          $request = $this -> getRequest();
          if ($request -> isPost()) {
              $customer = new Customer();
              $form -> setInputFilter($customer -> getInputFilter());
              $form -> setData($request -> getPost());
 
-             if ($form -> isValid()) {
+             if ($form -> isValid() && $form -> customValidations()) {
                  $customer -> exchangeArray($form -> getData());
                  $this -> getCustomerTable() -> saveCustomer(0, $customer);
 

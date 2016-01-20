@@ -75,7 +75,6 @@ function customer_onsubmit() {
     var zipcode = $("input[name=zipcode]").val();
     if (address && address.trim() != "") {
         if (!state || state.trim() == "") {
-            console.log("entro");
             addError("state", "required");
             if (!focused) { tofocus = "state"; focused = true; }
             formIsValid = false;
